@@ -62,7 +62,7 @@
                 <td>
                     <a href="javascript:void(0)" (click)="GoToLake(lake.lakeid)">{{ lake.name }}</a>
                     &nbsp;&nbsp;
-                    <a href="javascript:void(0)" (click)="GoToWaterAccess(lake.lakeid)">
+                    <a href="javascript:void(0)" (click)="GoToWaterAccess(lake.waterAccess[1], lake.waterAccess[0])" title="Get Directions to Water Access">
                         <img src="https://cdn.icon-icons.com/icons2/1364/PNG/512/boatonaramp_89129.png" width="15" height="15" title="Water Access Site" />
                     </a>
                     <button type="button" class="dialog-open-button" (click)="openDialog(lake.narrative)" title="Lake Summary">

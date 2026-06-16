@@ -43,8 +43,8 @@ export class App {
     window.open("https://www.dnr.state.mn.us/lakefind/lake.html?id=" + lakeid,'_blank');
   }
 
-  public GoToWaterAccess(lakeid: number){
-    window.open("https://www.dnr.state.mn.us/lakefind/was/report.html?id=" + lakeid, '_blank');
+  public GoToWaterAccess(x: number, y: number){
+    window.open("http://maps.google.com/?saddr=current+location&daddr=" + x + "," + y, '_blank');
   }
 
   private async surveyLakes(county: number) {
@@ -134,7 +134,8 @@ export class App {
           },
           surveyDate: latestSurvey.surveyDate,
           lakeid: element.id,
-          narrative: latestSurvey.narrative
+          narrative: latestSurvey.narrative,
+          waterAccess: element.point["epsg:4326"]
         });
       }
 
