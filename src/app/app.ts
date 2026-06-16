@@ -23,6 +23,8 @@ export class App {
   closeResult = '';
 
   fishtable: any[] = [];
+  sortColumn: string = '';
+  sortDirection: 'asc' | 'desc' = 'asc';
   searchstatus: string = ""
   currentcounty: string = ""
   lakeCount: string = ""
@@ -202,6 +204,42 @@ export class App {
     const highlightedContent = this.highlightSpecies(this.dialogContent);
     this.safeDialogContent = this.sanitizer.bypassSecurityTrustHtml(highlightedContent);
     this.dialogVisible = true;
+    this.cdr.detectChanges();
+  }
+
+  public sortBy(column: string) {
+    if (this.sortColumn === column) {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortColumn = column;
+      this.sortDirection = 'asc';
+    }
+
+    const dir = this.sortDirection === 'asc' ? 1 : -1;
+
+    const getValue = (lake: any) => {
+      switch (column) {
+        case 'name':
+          return (lake.name || '').toString().toLowerCase();
+        case 'averageWeight':
+          return Number(lake.speciesdata?.averageWeight) || 0;
+        case 'surveyDate':
+          return new Date(lake.surveyDate).getTime() || 0;
+        case 'zero': case 'one': case 'two': case 'three': case 'four': case 'five': case 'six': case 'seven': case 'eight': case 'nine': case 'ten': case 'eleven': case 'twelve': case 'total':
+          return Number(lake.fishlengths?.[column]) || 0;
+        default:
+          return 0;
+      }
+    };
+
+    this.fishtable.sort((a: any, b: any) => {
+      const va = getValue(a);
+      const vb = getValue(b);
+      if (va < vb) return -1 * dir;
+      if (va > vb) return 1 * dir;
+      return 0;
+    });
+
     this.cdr.detectChanges();
   }
 

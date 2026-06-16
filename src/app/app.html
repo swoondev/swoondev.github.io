@@ -37,23 +37,23 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Name</th>
-                <th>Average Weight</th>
-                <th>Survey Date</th>
-                <th>0-5"</th>
-                <th>6-7"</th>
-                <th>8-9"</th>
-                <th>10-11"</th>
-                <th>12-14"</th>
-                <th>15-19"</th>
-                <th>20-24"</th>
-                <th>25-29"</th>
-                <th>30-34"</th>
-                <th>35-39"</th>
-                <th>40-44"</th>
-                <th>45-49"</th>
-                <th>50-100"</th>
-                <th>Total</th>
+                <th><a href="javascript:void(0)" (click)="sortBy('name')">Name <span *ngIf="sortColumn==='name'">{{ sortDirection==='asc' ? '▲' : '▼' }}</span></a></th>
+                <th><a href="javascript:void(0)" (click)="sortBy('averageWeight')">Average Weight <span *ngIf="sortColumn==='averageWeight'">{{ sortDirection==='asc' ? '▲' : '▼' }}</span></a></th>
+                <th><a href="javascript:void(0)" (click)="sortBy('surveyDate')">Survey Date <span *ngIf="sortColumn==='surveyDate'">{{ sortDirection==='asc' ? '▲' : '▼' }}</span></a></th>
+                <th><a href="javascript:void(0)" (click)="sortBy('zero')">0-5" <span *ngIf="sortColumn==='zero'">{{ sortDirection==='asc' ? '▲' : '▼' }}</span></a></th>
+                <th><a href="javascript:void(0)" (click)="sortBy('one')">6-7" <span *ngIf="sortColumn==='one'">{{ sortDirection==='asc' ? '▲' : '▼' }}</span></a></th>
+                <th><a href="javascript:void(0)" (click)="sortBy('two')">8-9" <span *ngIf="sortColumn==='two'">{{ sortDirection==='asc' ? '▲' : '▼' }}</span></a></th>
+                <th><a href="javascript:void(0)" (click)="sortBy('three')">10-11" <span *ngIf="sortColumn==='three'">{{ sortDirection==='asc' ? '▲' : '▼' }}</span></a></th>
+                <th><a href="javascript:void(0)" (click)="sortBy('four')">12-14" <span *ngIf="sortColumn==='four'">{{ sortDirection==='asc' ? '▲' : '▼' }}</span></a></th>
+                <th><a href="javascript:void(0)" (click)="sortBy('five')">15-19" <span *ngIf="sortColumn==='five'">{{ sortDirection==='asc' ? '▲' : '▼' }}</span></a></th>
+                <th><a href="javascript:void(0)" (click)="sortBy('six')">20-24" <span *ngIf="sortColumn==='six'">{{ sortDirection==='asc' ? '▲' : '▼' }}</span></a></th>
+                <th><a href="javascript:void(0)" (click)="sortBy('seven')">25-29" <span *ngIf="sortColumn==='seven'">{{ sortDirection==='asc' ? '▲' : '▼' }}</span></a></th>
+                <th><a href="javascript:void(0)" (click)="sortBy('eight')">30-34" <span *ngIf="sortColumn==='eight'">{{ sortDirection==='asc' ? '▲' : '▼' }}</span></a></th>
+                <th><a href="javascript:void(0)" (click)="sortBy('nine')">35-39" <span *ngIf="sortColumn==='nine'">{{ sortDirection==='asc' ? '▲' : '▼' }}</span></a></th>
+                <th><a href="javascript:void(0)" (click)="sortBy('ten')">40-44" <span *ngIf="sortColumn==='ten'">{{ sortDirection==='asc' ? '▲' : '▼' }}</span></a></th>
+                <th><a href="javascript:void(0)" (click)="sortBy('eleven')">45-49" <span *ngIf="sortColumn==='eleven'">{{ sortDirection==='asc' ? '▲' : '▼' }}</span></a></th>
+                <th><a href="javascript:void(0)" (click)="sortBy('twelve')">50-100" <span *ngIf="sortColumn==='twelve'">{{ sortDirection==='asc' ? '▲' : '▼' }}</span></a></th>
+                <th><a href="javascript:void(0)" (click)="sortBy('total')">Total <span *ngIf="sortColumn==='total'">{{ sortDirection==='asc' ? '▲' : '▼' }}</span></a></th>
             </tr>
         </thead>
         <tbody>

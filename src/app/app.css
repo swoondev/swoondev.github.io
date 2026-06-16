@@ -58,3 +58,9 @@
   min-width: 90px;
 }
  
+table th a {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+ 
