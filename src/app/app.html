@@ -68,6 +68,9 @@
                     <button type="button" class="dialog-open-button" (click)="openDialog(lake.narrative)" title="Lake Summary">
                         <font size="2">Summary</font>
                     </button>
+                    <button type="button" class="dialog-open-button" (click)="openTopo(lake.waterAccess[1], lake.waterAccess[0])" title="Lake Topo">
+                        <font size="2">Lake Topo Chart</font>
+                    </button>
                 </td>
                 <td>{{ lake.speciesdata.averageWeight }}</td>
                 <td>{{ lake.surveyDate | date:'shortDate' }}</td>

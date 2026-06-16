@@ -47,6 +47,10 @@ export class App {
     window.open("http://maps.google.com/?saddr=current+location&daddr=" + x + "," + y, '_blank');
   }
 
+  public openTopo(x: number, y: number){
+    window.open("https://fishing-app.gpsnauticalcharts.com/i-boating-fishing-web-app/fishing-marine-charts-navigation.html#14.7/" + x + "/" + y, '_blank');
+  }
+
   private async surveyLakes(county: number) {
     this.setStatus('retrieving lakes...');
     try {
