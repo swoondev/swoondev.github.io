@@ -1,0 +1,31 @@
+<div class="col-lg-12">
+    <label for="lake-name">Lake name</label>
+    <input id="lake-name" type="text" [(ngModel)]="lakeName" class="form-control mb-2" placeholder="Enter lake name" />
+
+    <label for="county-select">County</label>
+    <select id="county-select" [(ngModel)]="countyInput" class="form-select mb-2">
+        <option [value]="0">All of MN</option>
+        <option *ngFor="let c of counties" [value]="c.Id">{{ c.County }}</option>
+    </select>
+
+    <button type="button" class="btn btn-primary mb-3" (click)="getLakeByName(lakeName, countyInput)">Search</button>
+</div>
+
+<div class="col-lg-12 mb-3">
+    <p>{{ searchstatus }}</p>
+</div>
+
+<div class="col-lg-12" *ngIf="hasSearched && !searchResult">
+    <p class="text-muted">No lake found. Try a different name.</p>
+</div>
+
+<div class="col-lg-12" *ngIf="searchResult">
+    <div class="card">
+        <div class="card-body">
+            <h3>{{ searchResult.name }}</h3>
+            <p><strong>ID:</strong> {{ searchResult.id }}</p>
+            <p><strong>County:</strong> {{ searchResult.county }}</p>
+            <p><strong>Area:</strong> {{ searchResult.area || 'Unknown' }}</p>
+        </div>
+    </div>
+</div>

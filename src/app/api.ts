@@ -25,5 +25,13 @@ export class Api {
             })
         );
     }
+
+    public GetLakeByName(name: string,county: number): Promise<any> {
+        return firstValueFrom(
+            this.httpClient.get<any>(this.lakefinder_api, {
+                params: new HttpParams().append("name", name).append("county", county)
+            })
+        );
+    }
   
 }
