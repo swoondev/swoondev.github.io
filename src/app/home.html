@@ -119,8 +119,11 @@
                 <td>
                     <a href="javascript:void(0)" (click)="GoToLake(lake.lakeid)">{{ lake.name }}</a>
                     &nbsp;&nbsp;
-                    <a href="javascript:void(0)" (click)="GoToWaterAccess(lake.waterAccess[1], lake.waterAccess[0])" title="Get Directions to Water Access">
-                        <img src="https://cdn.icon-icons.com/icons2/1364/PNG/512/boatonaramp_89129.png" width="15" height="15" title="Water Access Site" />
+                    <a href="javascript:void(0)" (click)="GoToWaterAccess(lake.waterAccess[1], lake.waterAccess[0])" title="Get directions to lake">
+                        <svg width="15" height="15" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Water Access Site">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#000"/>
+                            <circle cx="12" cy="9" r="2.5" fill="#fff"/>
+                        </svg>
                     </a>
                     <button type="button" class="dialog-open-button" (click)="openDialog(lake.narrative)" title="Lake Summary">
                         <font size="2">Summary</font>
