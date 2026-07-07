@@ -190,13 +190,29 @@ export class SearchByLake {
 
   public openDialog(content: string) {
     this.dialogContent = content || 'No summary available.';
-    this.safeDialogContent = this.sanitizer.bypassSecurityTrustHtml(this.dialogContent);
+    const highlightedContent = this.highlightSpecies(this.dialogContent);
+    this.safeDialogContent = this.sanitizer.bypassSecurityTrustHtml(highlightedContent);
     this.dialogVisible = true;
     this.cdr.detectChanges();
   }
 
   public closeDialog() {
     this.dialogVisible = false;
+  }
+
+  private getSelectedSpeciesText(): string {
+    const selected = this.species.find((s: any) => s.Id == this.speciesInput);
+    return selected?.Species?.trim() ?? this.speciesInput?.trim() ?? '';
+  }
+
+  private highlightSpecies(content: string): string {
+    const speciesText = this.getSelectedSpeciesText();
+    if (!speciesText) {
+      return content;
+    }
+
+    const escaped = speciesText.replace(/[.*+?^${}()|[\\]\\]/g, '\\$&');
+    return content.replace(new RegExp('\\b(' + escaped + ')\\b', 'gi'), '<font size="5"><strong>$1</strong></font>');
   }
 
   public sortBy(column: string) {
